@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { fetchProducts } from "./api";
+import CardsList from "./components/cards-list/cards-list";
+import Header from "./components/header/header";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts().then(setProducts);
-  }, []);
-
-  return (
-    <div>
-      <h1>Product List</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <main>
+                <h2>Time to get started!</h2>
+                <CardsList />
+            </main>
+        </div>
+    );
 }
 
 export default App;
